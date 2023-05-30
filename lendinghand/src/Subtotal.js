@@ -9,13 +9,31 @@ function Subtotal() {
   const navigate = useNavigate();
   const [{ basket }, dispatch] = useStateValue();
 
+  // Calculate the total quantity of items
+  const getTotalQuantity = () => {
+    let totalQuantity = 0;
+    basket.forEach((item) => {
+      totalQuantity += item.quantity;
+    });
+    return totalQuantity;
+  };
+
+  // Calculate the total price based on the quantity of each item
+  const getTotalPrice = () => {
+    let totalPrice = 0;
+    basket.forEach((item) => {
+      totalPrice += item.price * item.quantity;
+    });
+    return totalPrice;
+  };
+
   return (
     <div className="subtotal">
       <CurrencyFormat
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({basket.length} items): <strong>{value}</strong>
+              Subtotal ({getTotalQuantity()} items): <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift
@@ -23,7 +41,7 @@ function Subtotal() {
           </>
         )}
         decimalScale={2}
-        value={getBasketTotal(basket)}
+        value={getTotalPrice()}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"$"}

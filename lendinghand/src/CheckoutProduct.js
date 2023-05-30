@@ -2,8 +2,8 @@ import React from "react";
 import "./CheckoutProduct.css";
 import { useStateValue } from "./StateProvider";
 
-function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
-  const [{ basket, user }, dispatch] = useStateValue();
+function CheckoutProduct({ id, image, title, price, rating }) {
+  const [{ basket }, dispatch] = useStateValue();
 
   const removeFromBasket = () => {
     dispatch({
@@ -12,9 +12,21 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
     });
   };
 
+  const handleChangeQuantity = (e) => {
+    const newQuantity = parseInt(e.target.value);
+    dispatch({
+      type: "UPDATE_QUANTITY",
+      id: id,
+      quantity: newQuantity,
+    });
+  };
+
+  // Find the item in the basket based on the ID
+  const itemInBasket = basket.find((item) => item.id === id);
+
   return (
     <div className="checkoutProduct">
-      <img className="checkoutProduct__image" src={image} />
+      <img className="checkoutProduct__image" src={image} alt={title} />
 
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{title}</p>
@@ -26,12 +38,22 @@ function CheckoutProduct({ id, image, title, price, rating, hideButton }) {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>🌟</p>
+              <p key={i}>🌟</p>
             ))}
         </div>
-        {!hideButton && (
-          <button onClick={removeFromBasket}>Remove from Basket</button>
+        {itemInBasket && (
+          <div className="checkoutProduct__quantity">
+            <label htmlFor={`quantity-${id}`}>Quantity:</label>
+            <input
+              type="number"
+              id={`quantity-${id}`}
+              min="1"
+              value={itemInBasket.quantity}
+              onChange={handleChangeQuantity}
+            />
+          </div>
         )}
+        <button onClick={removeFromBasket}>Remove from Basket</button>
       </div>
     </div>
   );

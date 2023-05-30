@@ -8,6 +8,7 @@ function Footer() {
         <p className="footer__text">
           © 2023 Lending_Hands. All rights reserved.
         </p>
+
         <ul className="footer__links">
           <li className="footer__link-item">
             <a href="/">Home</a>

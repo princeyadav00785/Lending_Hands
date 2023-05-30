@@ -1,6 +1,14 @@
+.title{
+  font-size: 90px;
+  margin-left: 250px;
+  font-family: fantasy;
+  
+  /* background: linear-gradient(135deg, #8c6ac4 0%, #bd37e6 100%); */
 
+}
 .checkout{
-    display: flex;
+    /* display: flex; */
+    font-family: fantasy;
     padding: 20px;
     background-color: white;
     height: max-content;
@@ -14,4 +22,13 @@
     margin-right: 10px;
     padding: 10px;
     border-bottom: 1px solid lightgray;
+  }
+  .checkout__right {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
