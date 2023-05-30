@@ -1,0 +1,19 @@
+.location{
+    font-family: 'Times New Roman', Times, serif;
+    height: 40px;
+    display: flex;
+    align-items: ;
+    background-color: rgb(44, 28, 28);
+    color: aliceblue;
+    top: 0;
+    z-index: 100;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+   /* background-color:rgb(199, 186, 168) */
+}
+.text{
+    margin-top: 4px;
+    margin-left: 8px;
+}
+
+
