@@ -20,7 +20,10 @@ function Header() {
       </Link>
 
       <div className="header_search">
-        <input className="header_searchInput" />
+        <input
+          className="header_searchInput"
+          placeholder="....Search for items"
+        />
         <SearchIcon className="header_searchIcon"></SearchIcon>
       </div>
       <div className="header_nav">

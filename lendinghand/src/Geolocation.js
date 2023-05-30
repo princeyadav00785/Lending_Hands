@@ -39,7 +39,7 @@ function GeolocationTracker() {
 
   return (
     <div className="location">
-      <h4>Your current location:</h4>
+      <h4>Your current location :</h4>
       {loading ? (
         <p>Loading...</p>
       ) : (

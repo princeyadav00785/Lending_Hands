@@ -15,9 +15,9 @@ function Home() {
       <Geolocation />
       <div className="home">
         <div className="home__container">
-          {/* <Carousel /> */}
-          <img className="home__image" src={img1} alt="" />
+          <Carousel />
 
+          {/* <img className="home__image" src={img1} alt="" /> */}
           <div className="home__row">
             <Product
               id="12321341"
@@ -34,7 +34,6 @@ function Home() {
               image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
             />
           </div>
-
           <div className="home__row">
             <Product
               id="4903850"
@@ -58,7 +57,6 @@ function Home() {
               image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
             />
           </div>
-
           <div className="home__row">
             <Product
               id="90829332"
