@@ -6,6 +6,8 @@ import Carousel from "./Carousal";
 import Geolocation from "./Geolocation";
 import img1 from "./img1.png";
 import Card from "./Card";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -37,7 +39,7 @@ function Home() {
           <div className="home__row">
             <Product
               id="4903850"
-              title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
+              title="Samsung Smart Watch multimedia"
               price={199.99}
               rating={3}
               image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg"
@@ -71,6 +73,7 @@ function Home() {
       <hr></hr>
       <Card />
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

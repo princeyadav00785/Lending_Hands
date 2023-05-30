@@ -1,12 +1,13 @@
 import React from "react";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
 
   const addToBasket = () => {
-    // dispatch the item into the data layer
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
@@ -17,10 +18,20 @@ function Product({ id, title, image, price, rating }) {
         rating: rating,
       },
     });
+
+    toast.success(`${title} has been added to the cart`, {
+      position: "bottom-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   return (
-    <div className="product ">
+    <div className="product">
       <div className="product__info">
         <p>{title}</p>
         <p className="product__price">
@@ -31,7 +42,7 @@ function Product({ id, title, image, price, rating }) {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>🌟</p>
+              <p key={i}>🌟</p>
             ))}
         </div>
       </div>

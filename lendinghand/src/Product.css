@@ -43,11 +43,17 @@
 
 .product > button {
   background: #f0c14b;
+  background-color: #ffffb5;
+background-image: linear-gradient(315deg, #ffffb5 0%, #247ba0 74%);
+background-color: #ff4e00;
+background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+
   border: 1px solid;
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
   transition: background-color 0.3s ease;
+  border-radius: 20px;
 }
 
 .product > button:hover {
